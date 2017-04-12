@@ -36,12 +36,14 @@ namespace SCM
 
         public void ActualizarPizza(PizzaModel pizza)
         {
-            
+            PizzaModel viejo = this.PizzaPorId(pizza.Id);
+            pizzas.Remove(viejo);
+            pizzas.Add(pizza);
         }
 
         public void BorrarPizza(PizzaModel thaPizza)
         {
-            
+            pizzas.Remove(thaPizza);
         }
 
         public void CrearPizza(PizzaModel nuevaPizza)

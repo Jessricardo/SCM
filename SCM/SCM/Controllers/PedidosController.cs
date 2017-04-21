@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Helpers;
 using System.Web.Http;
 
 namespace SCM.Controllers
@@ -38,10 +39,11 @@ namespace SCM.Controllers
         }
 
         // POST api/pedidos
-        public void Post([FromBody]String value)
+        public void Post([FromBody]PedidoModel value)
         {
-            PedidoModel nuevo = JsonConvert.DeserializeObject<PedidoModel>(value);
-            pedidos.CrearPedido(nuevo);
+            value.fecha = DateTime.Today.ToString("dd/MM/yyyy");
+            value.hora = DateTime.Now.ToShortTimeString();
+            pedidos.CrearPedido(value);
         }
 
         // PUT api/pedidos/5

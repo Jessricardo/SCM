@@ -16,7 +16,25 @@ namespace SCM
     }
     public class MemoryPedidoRepository : IPedidoRepository
     {
-        List<PedidoModel> pedidos = new List<PedidoModel>();
+        private static List<PedidoModel> pedidos;
+        static MemoryPedidoRepository()
+        {
+            pedidos = new List<PedidoModel>();
+            var p = new PedidoModel()
+            {
+                id = 1,
+                nombre = "Mengano",
+                estado = "Pedido",
+                fecha = "Hoy",
+                hora = "10am",
+                latitud = 40.777,
+                longitud = 20.111,
+                nombrerepartidor = "Julion alvarez",
+                pizza = 1,
+                telefono = 6688323243
+            };
+            pedidos.Add(p);
+        }
         public void ActualizarPedido(PedidoModel pedidox)
         {
             PedidoModel viejo = this.PedidoPorId(pedidox.id);

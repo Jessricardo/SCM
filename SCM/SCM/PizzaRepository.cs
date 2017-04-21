@@ -32,6 +32,17 @@ namespace SCM
             p.Ingredientes.Add("Pepperoni");
             p.Ingredientes.Add("Queso");
             pizzas.Add(p);
+            var p2 = new PizzaModel()
+            {
+                Nombre = "Piña Xtreme",
+                Id = 2,
+                Calificacion = 8,
+                Precio = 200,
+                TiempoDePreparacion = 17
+            };
+            p2.Ingredientes.Add("Piña");
+            p2.Ingredientes.Add("Queso");
+            pizzas.Add(p2);
         }
 
         public void ActualizarPizza(PizzaModel pizza)

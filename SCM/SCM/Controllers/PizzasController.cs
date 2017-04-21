@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SCM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,12 +43,11 @@ namespace SCM.Controllers
 
         // POST: Pizzas/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PizzaModel pizza)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                pizzas.CrearPizza(pizza);
                 return RedirectToAction("Index");
             }
             catch

@@ -43,6 +43,8 @@ namespace SCM.Controllers
         {
             value.fecha = DateTime.Today.ToString("dd/MM/yyyy");
             value.hora = DateTime.Now.ToShortTimeString();
+            value.latitudRep = 24.793502;
+            value.longitudRep = -107.410427;
             pedidos.CrearPedido(value);
         }
 

@@ -48,12 +48,12 @@ namespace SCM.Controllers
 
         // POST: PedidosUI/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PedidoModel pedido)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                pedidos.CrearPedido(pedido);
                 return RedirectToAction("Index");
             }
             catch
@@ -65,17 +65,17 @@ namespace SCM.Controllers
         // GET: PedidosUI/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(pedidos.PedidoPorId(id));
         }
 
         // POST: PedidosUI/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(PedidoModel pedido)
         {
             try
             {
                 // TODO: Add update logic here
-
+                pedidos.ActualizarPedido(pedido);
                 return RedirectToAction("Index");
             }
             catch
@@ -87,17 +87,17 @@ namespace SCM.Controllers
         // GET: PedidosUI/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(pedidos.PedidoPorId(id));
         }
 
         // POST: PedidosUI/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(FormCollection notused, int id)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                pedidos.BorrarPedido(pedidos.PedidoPorId(id));
                 return RedirectToAction("Index");
             }
             catch

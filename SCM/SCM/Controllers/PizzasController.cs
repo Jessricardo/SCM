@@ -31,8 +31,7 @@ namespace SCM.Controllers
         // GET: Pizzas/Details/5
         public ActionResult Details(int id)
         {
-            var p = pizzas.PizzaPorId(id);
-            return View(p);
+            return View(pizzas.PizzaPorId(id));
         }
 
         // GET: Pizzas/Create
@@ -59,17 +58,17 @@ namespace SCM.Controllers
         // GET: Pizzas/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(pizzas.PizzaPorId(id));
         }
 
         // POST: Pizzas/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(PizzaModel pizza)
         {
             try
             {
                 // TODO: Add update logic here
-
+                pizzas.ActualizarPizza(pizza);
                 return RedirectToAction("Index");
             }
             catch
@@ -81,17 +80,17 @@ namespace SCM.Controllers
         // GET: Pizzas/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(pizzas.PizzaPorId(id));
         }
 
         // POST: Pizzas/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(FormCollection notused, int id)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                pizzas.BorrarPizza(pizzas.PizzaPorId(id));
                 return RedirectToAction("Index");
             }
             catch

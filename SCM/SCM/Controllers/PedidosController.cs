@@ -49,16 +49,15 @@ namespace SCM.Controllers
         }
 
         // PUT api/pedidos/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]PedidoModel value)
         {
-            PedidoModel nuevo = JsonConvert.DeserializeObject<PedidoModel>(value);
-            pedidos.ActualizarPedido(nuevo);
+            pedidos.ActualizarPedido(value);
         }
 
         // DELETE api/pedidos/5
-        public void Delete(int id)
+        public void Delete([FromBody]PedidoModel value)
         {
-            pedidos.BorrarPedido(pedidos.PedidoPorId(id));
+            pedidos.BorrarPedido(value);
         }
     }
 }
